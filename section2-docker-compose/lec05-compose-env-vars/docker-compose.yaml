@@ -1,0 +1,9 @@
+version: "3.0"
+services:
+  web-app:
+# use env variable TAG or default to latest
+    image: nginx:${TAG:-latest}
+    ports:
+    - "80:80"
+    environment:
+    - input=${INPUT:-10}
