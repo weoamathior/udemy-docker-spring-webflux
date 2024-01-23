@@ -1,0 +1,12 @@
+# Use of depends_on and service to service communication over internal network
+version: "3.0"
+services:
+  web-app:
+    image: nginx
+#    ports:
+#    - "80:80"
+  util:
+    image: vinsdocker/util
+    depends_on: 
+    - web-app
+    command: "curl web-app"
