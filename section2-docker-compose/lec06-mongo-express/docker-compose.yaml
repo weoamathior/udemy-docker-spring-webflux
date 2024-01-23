@@ -5,6 +5,8 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: admin
+    volumes:
+    - ./data:/data/db
   express:
     image: mongo-express
     restart: always # restart image in case mongo is not ready for connections
