@@ -1,0 +1,10 @@
+# Use of depends_on and service to service communication over internal network
+version: "3.0"
+services:
+  my-ubuntu:
+    image: ubuntu
+    command: "env"
+    environment:
+    - app.name=product-service
+    - service.url=google.com
+    - input=55
