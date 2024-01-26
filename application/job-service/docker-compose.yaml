@@ -13,7 +13,7 @@ services:
       - mongo
     ports:
       - "8080:8080"
-#    profiles:
-#      - app
+    profiles:
+      - app
     environment:
       spring.data.mongodb.uri: "mongodb://job_user:job_password@mongo:27017/job"
