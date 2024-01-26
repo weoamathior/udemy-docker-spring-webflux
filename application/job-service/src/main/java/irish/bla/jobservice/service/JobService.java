@@ -24,7 +24,7 @@ public class JobService {
                 .map(EntityDtoUtil::toDto);
     }
 
-    public Flux<JobDto> jobsBySkills(Set<String skills> skills) {
+    public Flux<JobDto> jobsBySkills(Set<String> skills) {
         return jobRepository
                 .findBySkillsIn(skills)
                 .map(EntityDtoUtil::toDto);
