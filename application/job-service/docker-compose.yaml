@@ -7,8 +7,8 @@ services:
     volumes:
       - ./src/test/resources/data:/docker-entrypoint-initdb.d
   job-service:
-#    build: .
-    image: "job-service:woot"
+    build: .
+    image: "job-service:wut"
     depends_on:
       - mongo
     ports:
