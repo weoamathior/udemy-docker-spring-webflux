@@ -6,7 +6,7 @@ import org.springframework.beans.BeanUtils;
 
 public class EntityDtoUtil {
     public static JobDto toDto(Job job) {
-        JobDto jobDto = JobDto.create();
+        JobDto jobDto = new JobDto();
         BeanUtils.copyProperties(job,jobDto);
         return jobDto;
     }
