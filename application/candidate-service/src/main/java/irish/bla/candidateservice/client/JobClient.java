@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -24,7 +25,8 @@ public class JobClient {
                 .uri(u -> u.path("search").queryParam("skills", skills).build())
                 .retrieve()
                 .bodyToFlux(JobDto.class)
-                .collectList();
+                .collectList()
+                .onErrorReturn(Collections.emptyList());
     }
 
 }
