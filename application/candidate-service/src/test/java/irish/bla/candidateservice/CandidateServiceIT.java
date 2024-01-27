@@ -32,7 +32,19 @@ public class CandidateServiceIT extends BaseTest{
                 .exchange()
                 .expectStatus().is2xxSuccessful()
                 .expectBody()
-                .jsonPath("$.id").isEqualTo(1);
+                .jsonPath("$.id").isEqualTo(1)
+                .jsonPath("$.recommendedJobs.size()").isEqualTo(1);
+    }
+
+    @Test
+    void shouldReturnEmptyJobListOnJob4xxErro() {
+        this.webTestClient.get()
+                .uri("/candidate/2")
+                .exchange()
+                .expectStatus().is2xxSuccessful()
+                .expectBody()
+                .jsonPath("$.id").isEqualTo(2)
+                .jsonPath("$.recommendedJobs.size()").isEqualTo(0);
     }
 
     @Test

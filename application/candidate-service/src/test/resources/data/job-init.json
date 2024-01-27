@@ -1,6 +1,14 @@
 [
   {
     "httpRequest": {
+      "path": "/health"
+    },
+    "httpResponse": {
+      "statusCode": 200
+    }
+  },
+  {
+    "httpRequest": {
       "path": "/job/search",
       "queryStringParameters": {
         "skills": [

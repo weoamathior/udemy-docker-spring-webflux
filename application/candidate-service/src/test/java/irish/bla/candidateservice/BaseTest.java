@@ -22,14 +22,14 @@ public abstract class BaseTest {
             "0",
             "mongodb://candidate_user:candidate_password@%s:%s/candidate",
             "HOST_PORT1"
-    )
+    );
     public static final Service JOB = Service.create(
             "job-mock",
             1080,
             "0",
             "http://%s:%s/job/",
             "HOST_PORT2"
-    )
+    );
 
     @ClassRule
     public static final DockerComposeContainer<?> compose = new DockerComposeContainer<>(new File("docker-compose.yaml"));
@@ -40,7 +40,7 @@ public abstract class BaseTest {
                 .withEnv(MONGO.getHostPortEnvVariable(), MONGO.getHostPort())
                 .withEnv(JOB.getHostPortEnvVariable(), JOB.getHostPort())
                 .withExposedService(MONGO.getName(), MONGO.getPort(), Wait.forListeningPort())
-                .withExposedService(JOB.getName(), JOB.getPort(), Wait.forListeningPort())
+                .withExposedService(JOB.getName(), JOB.getPort(), Wait.forHttp("/health").forStatusCode(200))
                 .start();
         String mongoHost = compose.getServiceHost(MONGO.getName(), MONGO.getPort());
         Integer mongoPort = compose.getServicePort(MONGO.getName(), MONGO.getPort());
