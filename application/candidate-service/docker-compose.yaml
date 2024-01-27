@@ -1,3 +1,4 @@
+# docker compose --profile=app up --build
 version: "3.0"
 services:
   mongo:
@@ -13,7 +14,7 @@ services:
       - mongo
     ports:
       - "8080:8080"
-#    profiles:
-#      - app
+    profiles:
+      - app
     environment:
       spring.data.mongodb.uri: "mongodb://candidate_user:candidate_password@mongo:27017/candidate"
