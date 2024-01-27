@@ -6,6 +6,7 @@ import irish.bla.candidateservice.util.EntityDtoUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PutMapping;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -24,4 +25,9 @@ public class CandidateService {
         return candidateRepository.findById(id).map(EntityDtoUtil::toDto);
     }
 
+    public Mono<CandidateDto> create(Mono<CandidateDto> dto) {
+        return dto.map(EntityDtoUtil::toEntity)
+                .flatMap(candidateRepository::save)
+                .map(EntityDtoUtil::toDto);
+    }
 }
