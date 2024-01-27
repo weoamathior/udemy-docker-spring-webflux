@@ -1,0 +1,30 @@
+[
+  {
+    "httpRequest": {
+      "path": "/some/.*"
+    },
+    "httpResponse": {
+      "body": {"msg":"regex matched"}
+    }
+  },
+  {
+    "httpRequest": {
+      "path": "/query",
+      "queryStringParameters":{
+	      "q":"docker"
+      }
+    },
+    "httpResponse": {
+      "body": {"msg":"docker!"}
+    }
+  },
+  {
+    "httpRequest": {
+      "path": "/error/500"
+    },
+    "httpResponse": {
+	    "statusCode":500
+    }
+  }
+]
+
