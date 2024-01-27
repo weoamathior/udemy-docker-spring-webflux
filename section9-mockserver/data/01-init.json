@@ -1,0 +1,22 @@
+[
+  {
+    "httpRequest": {
+      "path": "/say/hello",
+      "method": "GET"
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "body": "hello world"
+    }
+  },
+  {
+    "httpRequest": {
+      "path": "/some/path"
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "body": {"msg":"hello world"}
+    }
+  }
+]
+
