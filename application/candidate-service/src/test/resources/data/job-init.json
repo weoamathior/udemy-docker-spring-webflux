@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "path": "/job/search",
+      "queryStringParameters": {
+        "skills": [
+          "java",
+          "spring"
+        ]
+      }
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "body": [
+        {
+          "id": "mock-id-1",
+          "description": "mock job desc 1",
+          "company": "amazon",
+          "skills": [
+            "skill1"
+          ],
+          "salary": 123000,
+          "remote": true
+        }
+      ]
+    }
+  }
+]

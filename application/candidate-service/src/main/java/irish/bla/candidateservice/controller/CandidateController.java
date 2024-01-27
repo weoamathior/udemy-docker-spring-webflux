@@ -1,5 +1,6 @@
 package irish.bla.candidateservice.controller;
 
+import irish.bla.candidateservice.dto.CandidateDetailsDto;
 import irish.bla.candidateservice.dto.CandidateDto;
 import irish.bla.candidateservice.service.CandidateService;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +23,7 @@ public class CandidateController {
     }
 
     @GetMapping("{candidateId}")
-    public Mono<CandidateDto> findById(@PathVariable String candidateId) {
+    public Mono<CandidateDetailsDto> findById(@PathVariable String candidateId) {
         return candidateService.findById(candidateId);
     }
 
