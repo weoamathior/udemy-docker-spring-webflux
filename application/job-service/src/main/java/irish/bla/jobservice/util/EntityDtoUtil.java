@@ -8,6 +8,7 @@ public class EntityDtoUtil {
     public static JobDto toDto(Job job) {
         JobDto jobDto = new JobDto();
         BeanUtils.copyProperties(job,jobDto);
+        jobDto.setHostName(AppUtil.getHostname());
         return jobDto;
     }
 
