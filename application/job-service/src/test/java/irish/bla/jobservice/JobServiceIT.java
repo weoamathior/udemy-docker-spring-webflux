@@ -1,5 +1,6 @@
 package irish.bla.jobservice;
 
+import irish.bla.jobservice.compose.ComposeBaseTest;
 import irish.bla.jobservice.dto.JobDto;
 import irish.bla.jobservice.generic.BaseTest;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +14,7 @@ import java.util.Set;
 
 @SpringBootTest
 @AutoConfigureWebTestClient
-class JobServiceIT extends BaseTest {
+class JobServiceIT extends ComposeBaseTest {
 
 	@Autowired
 	private WebTestClient client;
